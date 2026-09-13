@@ -34,7 +34,7 @@ location /tinyauth {
     # Headers needed for authentication
     proxy_set_header x-original-url $scheme://$http_host$request_uri;
     proxy_set_header x-original-method $request_method;
-    proxy_set_header x-forwarded-for $remote_addr;
+    proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
     proxy_set_header x-real-ip $remote_addr;
 }
 ```
