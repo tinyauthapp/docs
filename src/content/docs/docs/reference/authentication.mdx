@@ -23,6 +23,14 @@ flowchart BR
 
 Tinyauth by default allows for authentication using the `Authorization` header with the Basic scheme. This means that clients can send credentials in the format of `username:password` encoded in Base64, which Tinyauth will decode and verify against the stored user configuration.
 
+Some apps use the `Authorization` header with the Basic scheme for their own authentication, which conflicts with Tinyauth's Basic authentication. For these apps, send the credentials in the `X-Tinyauth-Authorization` header instead, using the same `Basic base64(username:password)` format:
+
+```http
+X-Tinyauth-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+When this header is present, Tinyauth authenticates with it and ignores the `Authorization` header, so the upstream app receives the original `Authorization` value untouched. If the header is present but malformed, Tinyauth responds with `401 Unauthorized` instead of falling back to `Authorization`.
+
 :::caution
   When using Basic Authentication, accounts that use TOTP will not be able to authenticate, as the TOTP code cannot be provided in the `Authorization` header. For accounts with TOTP enabled, consider using cookie-based authentication.
 :::
