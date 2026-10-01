@@ -11,9 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.38.3",
+    "@astrojs/starlight": "0.42.4",
     "@types/qrcode": "^1.5.6",
-    "@yeskunall/astro-umami": "^0.0.8",
+    "@yeskunall/astro-umami": "^0.0.9",
     "astro": "6.1.8",
     "astro-mermaid": "^2.1.0",
     "bcryptjs": "^3.0.3",
@@ -21,7 +21,7 @@
     "mermaid": "^11.17.2",
     "otpauth": "^9.5.2",
     "qrcode": "^1.5.4",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "starlight-theme-rapide": "^0.6.0"
   },
   "engines": {
