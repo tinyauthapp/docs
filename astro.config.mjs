@@ -198,23 +198,17 @@ export default defineConfig({
         {
           label: "Community",
           collapsed: true,
-          autogenerate: {
-            directory: "docs/community",
-          },
+          items: [{ autogenerate: { directory: "docs/community" } }],
         },
         {
           label: "Breaking Updates",
           collapsed: true,
-          autogenerate: {
-            directory: "docs/breaking-updates",
-          },
+          items: [{ autogenerate: { directory: "docs/breaking-updates" } }],
         },
         {
           label: "Contributing",
           collapsed: true,
-          autogenerate: {
-            directory: "docs/contributing",
-          },
+          items: [{ autogenerate: { directory: "docs/contributing" } }],
         },
       ],
     }),
