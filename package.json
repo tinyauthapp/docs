@@ -21,7 +21,7 @@
     "mermaid": "^11.17.2",
     "otpauth": "^9.5.2",
     "qrcode": "^1.5.4",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "starlight-theme-rapide": "^0.6.0"
   },
   "engines": {
