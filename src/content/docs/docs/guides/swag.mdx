@@ -5,6 +5,16 @@ description: Use Tinyauth with the LinuxServer.io SWAG reverse proxy.
 
 [SWAG](https://docs.linuxserver.io/general/swag/) is an Nginx-based reverse proxy maintained by LinuxServer.io. Its proxy configuration samples include support for Tinyauth.
 
+:::caution
+  We **strongly** recommend that you use the configuration samples provided in this guide.
+  Proxy configurations may be updated frequently for security reasons and any sort of
+  community-maintained configuration may not be up to date.
+  If you are using configuration from a third-party source, please ensure that it is up to date and secure.
+:::
+
+This guide can be also used with a normal Nginx installation,
+but you will need to adapt the configuration to your setup.
+
 ## Prerequisites
 
 - Tinyauth v5.2.0 or newer.
@@ -32,7 +42,7 @@ location /tinyauth {
     proxy_set_header content-length "";
 
     # Headers needed for authentication
-    proxy_set_header x-original-url $scheme://$http_host$request_uri;
+    proxy_set_header x-original-url $scheme://$host$is_request_port$request_port$request_uri;
     proxy_set_header x-original-method $request_method;
     proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
     proxy_set_header x-real-ip $remote_addr;

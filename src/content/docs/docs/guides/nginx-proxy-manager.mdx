@@ -9,6 +9,16 @@ Nginx Proxy Manager is a popular tool in the homelab community for managing reve
   This guide assumes familiarity with Nginx Proxy Manager.
 :::
 
+:::caution
+  We **strongly** recommend that you use the configuration samples provided in this guide.
+  Proxy configurations may be updated frequently for security reasons and any sort of
+  community-maintained configuration may not be up to date.
+  If you are using configuration from a third-party source, please ensure that it is up to date and secure.
+:::
+
+This guide can be also used with a normal Nginx installation,
+but you will need to adapt the configuration to your setup.
+
 ## Example Docker Compose File
 
 The following Docker Compose file demonstrates how to set up Nginx Proxy Manager, Whoami, and Tinyauth:
@@ -103,7 +113,7 @@ location /tinyauth {
   proxy_set_header content-length "";
 
   # Pass the request headers
-  proxy_set_header x-original-url $scheme://$http_host$request_uri;
+  proxy_set_header x-original-url $scheme://$host$is_request_port$request_port$request_uri;
   proxy_set_header x-original-method $request_method;
   proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
   proxy_set_header x-real-ip $remote_addr;
@@ -113,7 +123,7 @@ location /tinyauth {
 It is recommended  (and required for IP address ACLs) that you set the `TINYAUTH_AUTH_TRUSTEDPROXIES` environment variable (`--auth.trustedproxies` for CLI flags and `auth.trustedProxies` for YAML) to the IP address of your Nginx instance so Tinyauth can trust the `X-Real-IP` and `X-Forwarded-For`headers and get the correct client IP.
 
 :::caution
-For Nginx setups in Docker (like this one), you will need to ensure that Nginx detects the correct IP address. Because Docker uses NAT for containers, you will probably need to run Nginx in `network_mode: host`.
+  For Nginx setups in Docker (like this one), you will need to ensure that Nginx detects the correct IP address. Because Docker uses NAT for containers, you will probably need to run Nginx in `network_mode: host`.
 :::
 
 :::note
