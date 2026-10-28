@@ -11,11 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.42.6",
+    "@astrojs/starlight": "0.42.7",
     "@types/qrcode": "^1.5.6",
     "@yeskunall/astro-umami": "^0.0.9",
-    "astro": "7.2.8",
-    "astro-mermaid": "^2.1.0",
+    "astro": "7.4.2",
+    "astro-mermaid": "^2.2.0",
     "bcryptjs": "^3.0.3",
     "countup.js": "^2.10.1",
     "mermaid": "^11.17.2",
