@@ -11,15 +11,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.42.6",
+    "@astrojs/starlight": "0.42.8",
     "@types/qrcode": "^1.5.6",
     "@yeskunall/astro-umami": "^0.0.9",
-    "astro": "7.2.8",
-    "astro-mermaid": "^2.1.0",
+    "astro": "7.4.5",
+    "astro-mermaid": "^2.2.0",
     "bcryptjs": "^3.0.3",
     "countup.js": "^2.10.1",
     "mermaid": "^11.17.2",
-    "otpauth": "^9.5.2",
+    "otpauth": "^9.6.0",
     "qrcode": "^1.5.4",
     "sharp": "^0.35.5",
     "starlight-theme-rapide": "^0.6.0"
